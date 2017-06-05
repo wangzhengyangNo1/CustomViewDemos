@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--蜘蛛网图-->
+    <declare-styleable name="SpiderNetView">
+        <attr name="netColor" format="color"/>
+        <attr name="overlayColor" format="color"/>
+        <attr name="textColor" format="color"/>
+        <attr name="overlayAlpha" format="integer"/>
+        <attr name="tagSize" format="integer"/>
+
+    </declare-styleable>
+
+</resources>

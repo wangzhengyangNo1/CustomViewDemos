@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CustomViewDemos</string>
+    <string-array name="custom_view_arr">
+        <item>绘制文字drawText()</item>
+        <item>蜘蛛网图</item>
+        <item>圆形进度条</item>
+        <item>水波纹</item>
+        <item>仪表盘</item>
+
+    </string-array>
+
+</resources>

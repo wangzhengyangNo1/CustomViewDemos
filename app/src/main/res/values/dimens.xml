@@ -1,0 +1,13 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--主页-->
+    <dimen name="rv_offset_v">3dp</dimen>
+
+
+    <!--蜘蛛网图 SpiderNetView-->
+    <dimen name="size_item_text">20sp</dimen>
+
+</resources>
