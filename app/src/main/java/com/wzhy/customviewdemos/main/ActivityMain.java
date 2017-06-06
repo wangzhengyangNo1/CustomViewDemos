@@ -13,6 +13,7 @@ import android.view.View;
 
 import com.wzhy.customviewdemos.AppSelf;
 import com.wzhy.customviewdemos.R;
+import com.wzhy.customviewdemos.customviews.animatorstu.ActivityAnimator;
 import com.wzhy.customviewdemos.customviews.drawtext.ActivityDrawText;
 
 public class ActivityMain extends AppCompatActivity {
@@ -39,10 +40,9 @@ public class ActivityMain extends AppCompatActivity {
                         toActivity(ActivityDrawText.class, null);
                         break;
                     case 1:
-
+                        toActivity(ActivityAnimator.class, null);
                         break;
                     case 2:
-
 
                         break;
                     case 3:
