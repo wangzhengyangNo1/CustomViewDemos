@@ -10,7 +10,7 @@ import android.view.View;
 public class ValueAnimatorStu {
 
     public static void startAnimatorOnView(final View view){
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 400);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 400, 100);
         valueAnimator.setDuration(1500);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
