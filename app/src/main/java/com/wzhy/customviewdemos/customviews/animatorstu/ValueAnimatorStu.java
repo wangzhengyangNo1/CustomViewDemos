@@ -10,15 +10,13 @@ import android.view.View;
 public class ValueAnimatorStu {
 
     public static void startAnimatorOnView(final View view){
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 400, 200);
-        valueAnimator.setDuration(2000);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 400);
+        valueAnimator.setDuration(1500);
         valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 int curValue = (int) animation.getAnimatedValue();
                 view.layout(curValue, curValue, curValue + view.getWidth(), curValue + view.getHeight());
-
-//                Log.i("func", "onAnimationUpdate: curValue = " + curValue);
             }
         });
 

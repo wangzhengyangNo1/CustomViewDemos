@@ -26,13 +26,20 @@ public class ActivityAnimator extends AppCompatActivity {
     private View mIndicatorView;
     private LinearLayout mLlContent;
 
+    /**
+     * 前一个tab的id
+     */
     private int mPreId = 0;
+    /**
+     * 前一个tab距离屏幕左边的距离
+     */
     private int preLeft = 0;
     private int widthPixels;
 
     private final String[] mTags = new String[]{
             "ValueAnimator", "tag2", "tag3", "tag4", "tag5", "tag6",
-            "tag7", "tag8", "tag9", "tag10", "tag11", "tag12"
+            "tag7", "tag8", "tag9", "tag10", "tag11", "tag12","tag13",
+            "tag14", "tag15", "tag16", "tag17", "tag18", "tag19", "tag20"
     };
     private FragmentManager mFragmentManager;
     private FragmentValueAnimatorBase mFragVab;

@@ -6,22 +6,41 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.wzhy.customviewdemos.AppSelf;
 import com.wzhy.customviewdemos.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class FragmentValueAnimatorBase extends Fragment {
 
 
-    private View layout;
+    private View mLayout;
+    private TextView mTvObject;
+    private Button mBtnStart;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        layout = inflater.inflate(R.layout.fragment_value_animator_base, container, false);
-        return layout;
+        mLayout = inflater.inflate(R.layout.fragment_value_animator_base, container, false);
+        mTvObject = (TextView) mLayout.findViewById(R.id.tv_object);
+        mBtnStart = (Button) mLayout.findViewById(R.id.btn_start);
+
+        mBtnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ValueAnimatorStu.startAnimatorOnView(mTvObject);
+            }
+        });
+
+        mTvObject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppSelf.showTip("我被点击了...");
+            }
+        });
+
+        return mLayout;
     }
 
 }
