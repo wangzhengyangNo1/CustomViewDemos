@@ -1,6 +1,7 @@
 package com.wzhy.customviewdemos.customviews.animatorstu;
 
 
+import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -29,7 +30,7 @@ public class FragmentValueAnimatorBase extends Fragment {
         mBtnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ValueAnimatorStu.startAnimatorOnView(mTvObject);
+                startAnimatorOnView(mTvObject);
             }
         });
 
@@ -41,6 +42,20 @@ public class FragmentValueAnimatorBase extends Fragment {
         });
 
         return mLayout;
+    }
+
+    public static void startAnimatorOnView(final View view){
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, 400, 100);
+        valueAnimator.setDuration(1500);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int curValue = (int) animation.getAnimatedValue();
+                view.layout(curValue, curValue, curValue + view.getWidth(), curValue + view.getHeight());
+            }
+        });
+
+        valueAnimator.start();
     }
 
 }
