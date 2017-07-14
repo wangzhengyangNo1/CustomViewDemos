@@ -34,6 +34,10 @@ public class ActivityAnimator extends AppCompatActivity {
      * 前一个tab距离屏幕左边的距离
      */
     private int preLeft = 0;
+
+    /**
+     * 屏幕宽度
+     */
     private int widthPixels;
 
     private final String[] mTags = new String[]{
@@ -49,7 +53,9 @@ public class ActivityAnimator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animator);
 
+        //获取屏幕宽度
         widthPixels = getScreenWidth();
+
         initView();
         initFragments();
 
@@ -61,18 +67,39 @@ public class ActivityAnimator extends AppCompatActivity {
         });
     }
 
+    /**
+     * 获取屏幕宽度
+     */
     private int getScreenWidth() {
         DisplayMetrics metrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         return metrics.widthPixels;
     }
 
+    /**
+     * 初始化控件
+     */
     private void initView() {
         mHsv = (HorizontalScrollView) findViewById(R.id.hsv);
         mIndicatorView = findViewById(R.id.view_indicator);
         mLlContent = (LinearLayout) findViewById(R.id.ll_content);
-        initTags();
+        initTags();//初始化标签
 
+    }
+
+    /**
+     * 初始化标签
+     */
+    private void initTags() {
+        mLlContent.removeAllViews();
+        for (int i = 0; i < mTags.length; i++) {
+            TextView tvTag = (TextView) AppSelf.getInflater().inflate(R.layout.layout_tag, mLlContent, false);
+            tvTag.setTextColor(Color.DKGRAY);
+            tvTag.setText(mTags[i]);
+            tvTag.setId(i);
+            mLlContent.addView(tvTag);
+            tvTag.setOnClickListener(mClickListener);
+        }
     }
 
     private void switchPage(int id) {
@@ -137,18 +164,6 @@ public class ActivityAnimator extends AppCompatActivity {
         anim.setDuration(100);
         anim.setFillAfter(true);
         mIndicatorView.startAnimation(anim);
-    }
-
-    private void initTags() {
-        mLlContent.removeAllViews();
-        for (int i = 0; i < mTags.length; i++) {
-            TextView tvTag = (TextView) AppSelf.getInflater().inflate(R.layout.layout_tag, mLlContent, false);
-            tvTag.setTextColor(Color.DKGRAY);
-            tvTag.setText(mTags[i]);
-            tvTag.setId(i);
-            mLlContent.addView(tvTag);
-            tvTag.setOnClickListener(mClickListener);
-        }
     }
 
     private void initFragments() {
