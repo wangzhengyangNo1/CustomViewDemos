@@ -41,7 +41,7 @@ public class ActivityAnimator extends AppCompatActivity {
     private int widthPixels;
 
     private final String[] mTags = new String[]{
-            "ValueAnimatorBase", "ValueAnimatorStart", "tag3", "tag4", "tag5", "tag6",
+            "VABase", "VAStart", "GradientBgVA", "tag4", "tag5", "tag6",
             "tag7", "tag8", "tag9", "tag10", "tag11", "tag12","tag13",
             "tag14", "tag15", "tag16", "tag17", "tag18", "tag19", "tag20"
     };
@@ -169,16 +169,24 @@ public class ActivityAnimator extends AppCompatActivity {
     private void initFragments() {
         mFragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
+
         mFragVab = new FragmentValueAnimatorBase();
-        FragmentValueAnimatorStart fragVas = new FragmentValueAnimatorStart();
         transaction.add(R.id.fl_container, mFragVab, "tag0");
-        transaction.add(R.id.fl_container, fragVas, "tag1");
-        transaction.hide(fragVas);
-        for (int i = 2; i < mTags.length; i++) {
+
+        FragmentValueAnimatorStart fragVas = new FragmentValueAnimatorStart();
+        transaction.add(R.id.fl_container, fragVas, "tag1").hide(fragVas);
+
+        FragmentVAnimGradientBg fragmentVAnimGradientBg = new FragmentVAnimGradientBg();
+        transaction.add(R.id.fl_container, fragmentVAnimGradientBg, "tag2").hide(fragmentVAnimGradientBg);
+
+
+        for (int i = 3; i < mTags.length; i++) {
             FragmentCommon fragmentCommon = new FragmentCommon();
             transaction.add(R.id.fl_container, fragmentCommon, "tag" + i);
             transaction.hide(fragmentCommon);
         }
+
+
         transaction.commit();
     }
 
