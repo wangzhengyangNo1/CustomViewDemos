@@ -21,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".customviews.drawtext.ActivityDrawText" />
-        <activity android:name=".customviews.animatorstu.ActivityAnimator"></activity>
+        <activity android:name=".customviews.animatorstu.ActivityAnimator" />
+        <activity android:name=".customviews.enlargecircle.ActivityEnlargeCircle"></activity>
     </application>
 
 </manifest>

@@ -72,4 +72,10 @@ public class FragmentVAnimGradientBg extends Fragment {
         });
     }
 
+    @Override
+    public void onDestroy() {
+        mBgGradientAnimator.cancel();
+        mBgGradientAnimator.removeAllUpdateListeners();
+        super.onDestroy();
+    }
 }
